@@ -54,8 +54,13 @@ classifier=classifier.fit(pred_train,tar_train)
 
 predictions=classifier.predict(pred_test)
 
-sklearn.metrics.confusion_matrix(tar_test,predictions)
-sklearn.metrics.accuracy_score(tar_test, predictions)
+my_conf_matrix = sklearn.metrics.confusion_matrix(tar_test, predictions)
+print('Confusion matrix')
+print (my_conf_matrix)
+print('\n'*2)
+my_accurate_score = sklearn.metrics.accuracy_score(tar_test, predictions)
+print('Accuracy score')
+print(my_accurate_score)
 
 
 # fit an Extra Trees model to the data
