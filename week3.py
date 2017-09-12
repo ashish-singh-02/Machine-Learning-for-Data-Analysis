@@ -61,7 +61,7 @@ model=LassoLarsCV(cv=10, precompute=False).fit(pred_train,tar_train)
 print('Variable names and regression coefficients :\n')
 print(dict(zip(predictors.columns, model.coef_)))
 
-print('\n'*2)
+
 
 # plot coefficient progression
 m_log_alphas = -np.log10(model.alphas_)
@@ -73,7 +73,7 @@ plt.ylabel('Regression Coefficients')
 plt.xlabel('-log(alpha)')
 plt.title('Regression Coefficients Progression for Lasso Paths')
 
-print('\n'*2)
+
 
 # plot mean square error for each fold
 m_log_alphascv = -np.log10(model.cv_alphas_)
@@ -94,17 +94,19 @@ print('\n'*2)
 from sklearn.metrics import mean_squared_error
 train_error = mean_squared_error(tar_train, model.predict(pred_train))
 test_error = mean_squared_error(tar_test, model.predict(pred_test))
-print ('training data MSE')
+print ('training data MSE :')
 print(train_error)
-print ('test data MSE')
+print('\n')
+print ('test data MSE :')
 print(test_error)
 
-print('\n'*2)
+print('\n')
 
 # R-square from training and test data
 rsquared_train=model.score(pred_train,tar_train)
 rsquared_test=model.score(pred_test,tar_test)
-print ('training data R-square')
+print ('training data R-square : ')
 print(rsquared_train)
-print ('test data R-square')
+print('\n')
+print ('test data R-square : ')
 print(rsquared_test)

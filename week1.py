@@ -76,4 +76,4 @@ out = StringIO()
 tree.export_graphviz(classifier, out_file=out)
 import pydotplus
 graph=pydotplus.graph_from_dot_data(out.getvalue())
-#graph.write_png ("Decision_Tree_Image.png")
+graph.write_png ("Decision_Tree_Image.png")
